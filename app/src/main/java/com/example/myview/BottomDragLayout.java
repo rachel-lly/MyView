@@ -16,7 +16,7 @@ public class BottomDragLayout extends ViewGroup {
     private View mBottomView;
     private View mContentView;
     private LayoutInflater mLayoutInflater;
-    private int mBottomBorderHeigth = 20;
+    private int mBottomBorderHeigth = 20;//底部高度
 
 
     public BottomDragLayout(Context context) {
