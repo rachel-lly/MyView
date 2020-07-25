@@ -110,7 +110,6 @@ public class PullUpDragLayout extends ViewGroup {
             }
         }
 
-        //手指释放的时候回调
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             if (releasedChild == mBottomView) {
