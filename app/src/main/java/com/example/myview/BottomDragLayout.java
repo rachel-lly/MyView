@@ -74,7 +74,6 @@ public class BottomDragLayout extends ViewGroup {
             final int leftBound = getPaddingLeft();
             final int rightBound = getWidth() - mBottomView.getWidth() - leftBound;
             final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
-
             return newLeft;
         }
 
