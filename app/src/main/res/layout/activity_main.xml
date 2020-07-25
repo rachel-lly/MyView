@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/bg"
     tools:context=".MainActivity">
 
-    <com.example.myview.CustomView
-        android:id="@+id/customView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="50dp"
 
-         />
 
-    <com.example.myview.BottomDragLayout
+    <com.example.myview.PullUpDragLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_up_drag_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_height="match_parent"
+        app:PullUpDrag_BottomBorderHeigth="20dp"
+        app:PullUpDrag_ContentView="@layout/content_view"
+        app:PullUpDrag_BottomView="@layout/bottom_view"
+        >
+        <!--或者在这里，注意顺序不能变 ContentView 再到 BottomView-->
+    </com.example.myview.PullUpDragLayout>
 
 
 
-</RelativeLayout>
+</LinearLayout>
