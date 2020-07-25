@@ -11,39 +11,65 @@
         android:layout_height="20dp"
         android:src="@mipmap/up"
         android:background="@drawable/stroke"
-
         android:layout_centerHorizontal="true"
         />
 
     <RelativeLayout
-        android:id="@+id/frag_layout_detial"
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/upIv"
         android:orientation="vertical"
         android:background="#FFFFFF"
         >
+        <RelativeLayout
+            android:id="@+id/search_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/stroketext"
+            >
 
-       <ListView
-           android:id="@+id/listview"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           ></ListView>
+            <ImageView
+                android:id="@+id/garbage_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                android:src="@mipmap/search"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                />
+
+            <TextView
+                android:id="@+id/garbage_search_autoCompelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="       搜索交通路线"
+                android:textSize="25sp"
+                android:textColor="#696969"
+
+                />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_below="@+id/search_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/cartoon"
+            android:layout_below="@id/listview"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            ></ImageView>
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/frag_layout_detial"
-        android:background="#FFFFFF">
-    <ImageView
 
-        android:layout_width="wrap_content"
-        android:layout_height="180dp"
-        android:src="@mipmap/cartoon"
-        android:layout_centerHorizontal="true"
-        ></ImageView>
-    </RelativeLayout>
 </RelativeLayout>
 

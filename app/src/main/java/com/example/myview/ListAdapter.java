@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
 public class ListAdapter extends BaseAdapter {
 
     private List<String> mlist;

@@ -20,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listview);
 
         List<String> list = new ArrayList<>();
-        for(int i = 0 ; i<5 ;i++){
+        for(int i = 0 ; i<10 ;i++){
             list.add("第"+i+"条信息");
         }
         ListAdapter listAdapter = new ListAdapter(list,this);
         listView.setAdapter(listAdapter);
+
 
     }
 }
