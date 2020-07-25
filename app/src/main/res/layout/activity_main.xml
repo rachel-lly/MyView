@@ -8,17 +8,16 @@
 
 
 
-    <com.example.myview.PullUpDragLayout
+    <com.example.myview.BottomDragLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/pull_up_drag_layout"
+        android:id="@+id/bottomdrag_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:PullUpDrag_BottomBorderHeigth="20dp"
-        app:PullUpDrag_ContentView="@layout/content_view"
-        app:PullUpDrag_BottomView="@layout/bottom_view"
+        app:BottomDrag_BottomBorderHeigth="20dp"
+        app:BottomDrag_ContentView="@layout/content_view"
+        app:BottomDrag_BottomView="@layout/bottom_view"
         >
-        <!--或者在这里，注意顺序不能变 ContentView 再到 BottomView-->
-    </com.example.myview.PullUpDragLayout>
+    </com.example.myview.BottomDragLayout>
 
 
 

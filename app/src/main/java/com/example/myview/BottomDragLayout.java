@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import androidx.customview.widget.ViewDragHelper;
 
-public class PullUpDragLayout extends ViewGroup {
+public class BottomDragLayout extends ViewGroup {
     private ViewDragHelper mViewDragHelper;//拖拽帮助类
     private View mBottomView;//底部内容View
     private View mContentView;//内容View
@@ -34,26 +34,15 @@ public class PullUpDragLayout extends ViewGroup {
         mScrollChageListener = scrollChageListener;
     }
 
-    public interface OnStateListener {
-        void open();
-
-        void close();
-    }
-
-    public interface OnScrollChageListener {
-        void onScrollChange(float rate);
-    }
-
-
-    public PullUpDragLayout(Context context) {
+    public BottomDragLayout(Context context) {
         this(context, null, 0);
     }
 
-    public PullUpDragLayout(Context context, AttributeSet attrs) {
+    public BottomDragLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PullUpDragLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BottomDragLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
         initCustomAttrs(context, attrs);
@@ -129,62 +118,61 @@ public class PullUpDragLayout extends ViewGroup {
 
     };
 
-    public boolean isOpen() {
-        return isOpen;
-    }
-
-    /**
-     * 切换底部View
-     */
-    public void toggleBottomView() {
-        if (isOpen) {
-            mViewDragHelper.smoothSlideViewTo(mBottomView, mAutoBackBottomPos.x, mAutoBackBottomPos.y);
-            if (mOnStateListener != null) mOnStateListener.close();
-        } else {
-            mViewDragHelper.smoothSlideViewTo(mBottomView, mAutoBackTopPos.x, mAutoBackTopPos.y);
-            if (mOnStateListener != null) mOnStateListener.open();
-        }
-        invalidate();
-        isOpen = !isOpen;
-    }
+//    public boolean isOpen() {
+//        return isOpen;
+//    }
+//
+//    /*切换底部View*/
+//    public void toggleBottomView() {
+//        if (isOpen) {
+//            mViewDragHelper.smoothSlideViewTo(mBottomView, mAutoBackBottomPos.x, mAutoBackBottomPos.y);
+//            if (mOnStateListener != null) mOnStateListener.close();
+//        } else {
+//            mViewDragHelper.smoothSlideViewTo(mBottomView, mAutoBackTopPos.x, mAutoBackTopPos.y);
+//            if (mOnStateListener != null) mOnStateListener.open();
+//        }
+//        invalidate();
+//        isOpen = !isOpen;
+//    }
 
 
     private void initCustomAttrs(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PullUpDragLayout);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BottomDragLayout);
         if (typedArray != null) {
-            if (typedArray.hasValue(R.styleable.PullUpDragLayout_PullUpDrag_ContentView)) {
-                inflateContentView(typedArray.getResourceId(R.styleable.PullUpDragLayout_PullUpDrag_ContentView, 0));
+            if (typedArray.hasValue(R.styleable.BottomDragLayout_BottomDrag_ContentView)) {
+
+                mContentView = mLayoutInflater.inflate(
+                        typedArray.getResourceId(R.styleable.BottomDragLayout_BottomDrag_ContentView, 0),
+                        this, true);
+
             }
-            if (typedArray.hasValue(R.styleable.PullUpDragLayout_PullUpDrag_BottomView)) {
-                inflateBottomView(typedArray.getResourceId(R.styleable.PullUpDragLayout_PullUpDrag_BottomView, 0));
+            if (typedArray.hasValue(R.styleable.BottomDragLayout_BottomDrag_BottomView)) {
+
+                mBottomView = mLayoutInflater.inflate(
+                        typedArray.getResourceId(R.styleable.BottomDragLayout_BottomDrag_BottomView, 0),
+                        this, true);
+
             }
-            if (typedArray.hasValue(R.styleable.PullUpDragLayout_PullUpDrag_BottomBorderHeigth)) {
-                mBottomBorderHeigth = (int) typedArray.getDimension(R.styleable.PullUpDragLayout_PullUpDrag_BottomBorderHeigth, 20);
+            if (typedArray.hasValue(R.styleable.BottomDragLayout_BottomDrag_BottomBorderHeigth)) {
+                mBottomBorderHeigth = (int) typedArray.getDimension(R.styleable.BottomDragLayout_BottomDrag_BottomBorderHeigth, 20);
             }
             typedArray.recycle();
         }
 
     }
 
-    private void inflateContentView(int resourceId) {
-        mContentView = mLayoutInflater.inflate(resourceId, this, true);
-    }
-
-    private void inflateBottomView(int resourceId) {
-        mBottomView = mLayoutInflater.inflate(resourceId, this, true);
-    }
-
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
         mContentView = getChildAt(0);
         mBottomView = getChildAt(1);
         measureChild(mBottomView, widthMeasureSpec, heightMeasureSpec);
-        int bottomViewHeight = mBottomView.getMeasuredHeight();
-
         measureChild(mContentView, widthMeasureSpec, heightMeasureSpec);
-        int contentHeight = mContentView.getMeasuredHeight();
-        setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), bottomViewHeight + contentHeight + getPaddingBottom() + getPaddingTop());
+
+        setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),
+                mBottomView.getMeasuredHeight() + mContentView.getMeasuredHeight()
+                        + getPaddingBottom() + getPaddingTop());
     }
 
 
@@ -192,8 +180,13 @@ public class PullUpDragLayout extends ViewGroup {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         mContentView = getChildAt(0);
         mBottomView = getChildAt(1);
-        mContentView.layout(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), mContentView.getMeasuredHeight());
-        mBottomView.layout(getPaddingLeft(), mContentView.getHeight() - mBottomBorderHeigth, getWidth() - getPaddingRight(), getMeasuredHeight() - mBottomBorderHeigth);
+
+        mContentView.layout(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(),
+                mContentView.getMeasuredHeight());
+
+        mBottomView.layout(getPaddingLeft(), mContentView.getHeight() - mBottomBorderHeigth,
+                getWidth() - getPaddingRight(), getMeasuredHeight() - mBottomBorderHeigth);
+
         mAutoBackBottomPos.x = mBottomView.getLeft();
         mAutoBackBottomPos.y = mBottomView.getTop();
 
