@@ -2,40 +2,61 @@ package com.example.myview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ListView;
+import android.view.LayoutInflater;
+import android.view.View;
 
-import com.bumptech.glide.Glide;
+import com.example.myview.BottomDragLayout.BottomDragActivity;
+import com.example.myview.LoadingView.LoadingView;
+import com.example.myview.databinding.ActivityMainBinding;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-public class MainActivity extends AppCompatActivity {
-
+    private ActivityMainBinding mainBinding;
     private LoadingView loadingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
 
-        ListView listView = findViewById(R.id.listview);
+        setClick();
 
-        List<String> list = new ArrayList<>();
-        for(int i = 0 ; i<=5 ;i++){
-            list.add("第"+i+"条信息");
+        setContentView(mainBinding.getRoot());
+
+
+
+    }
+
+    private void setClick() {
+        mainBinding.bottomdragLayoutButton.setOnClickListener(this);
+        mainBinding.loadingViewButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()){
+            case R.id.bottomdrag_layout_button:
+
+                intent = new Intent(this, BottomDragActivity.class);
+                startActivity(intent);
+
+                break;
+            case R.id.loadingView_button:
+
+                loadingView = new LoadingView(this,R.style.CustomDialog);
+                loadingView.show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingView.dismiss();
+                    }
+                },10000);
+
+                break;
         }
-        ListAdapter listAdapter = new ListAdapter(list,this);
-        listView.setAdapter(listAdapter);
-
-        loadingView = new LoadingView(this,R.style.CustomDialog);
-        loadingView.show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingView.dismiss();
-            }
-        },10000);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.myview;
+package com.example.myview.BottomDragLayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.customview.widget.ViewDragHelper;
+
+import com.example.myview.R;
 
 public class BottomDragLayout extends ViewGroup {
     private ViewDragHelper mViewDragHelper;//拖拽帮助类

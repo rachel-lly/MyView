@@ -1,4 +1,4 @@
-package com.example.myview;
+package com.example.myview.BottomDragLayout;
 
 
 public interface OnStateListener {

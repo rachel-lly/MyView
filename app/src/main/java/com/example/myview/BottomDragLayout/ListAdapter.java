@@ -1,4 +1,4 @@
-package com.example.myview;
+package com.example.myview.BottomDragLayout;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.myview.R;
 
 import java.util.List;
 

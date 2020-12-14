@@ -5,13 +5,7 @@
     android:background="@mipmap/bg"
     android:orientation="vertical">
 
-<!--    <com.example.myview.CustomView-->
-<!--        android:id="@+id/customView"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_margin="50dp"-->
 
-<!--        />-->
 
 
 

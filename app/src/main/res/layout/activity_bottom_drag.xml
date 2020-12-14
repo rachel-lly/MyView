@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomDragLayout.BottomDragActivity">
+
+
+    <com.example.myview.BottomDragLayout.BottomDragLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bottomdrag_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:BottomDrag_BottomBorderHeigth="20dp"
+        app:BottomDrag_ContentView="@layout/content_view"
+        app:BottomDrag_BottomView="@layout/bottom_view"
+        >
+    </com.example.myview.BottomDragLayout.BottomDragLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

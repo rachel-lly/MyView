@@ -1,10 +1,12 @@
-package com.example.myview;
+package com.example.myview.LoadingView;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+
+import com.example.myview.R;
 
 public class LoadingView extends ProgressDialog {
     public LoadingView(Context context) {
