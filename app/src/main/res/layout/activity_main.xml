@@ -8,6 +8,7 @@
 
 
 
+
     <com.example.myview.BottomDragLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/bottomdrag_layout"
