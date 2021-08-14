@@ -49,6 +49,14 @@
             android:textAllCaps="false"
             />
 
+        <Button
+            android:id="@+id/paint_activity"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Paint_Activity"
+            android:textAllCaps="false"
+            />
+
 
 
     </LinearLayout>

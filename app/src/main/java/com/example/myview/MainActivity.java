@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.myview.BottomDragLayout.BottomDragActivity;
 import com.example.myview.LoadingView.LoadingView;
+import com.example.myview.PaintActivity.PaintActivity;
 import com.example.myview.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mainBinding.bottomdragLayoutButton.setOnClickListener(this);
         mainBinding.loadingViewButton.setOnClickListener(this);
         mainBinding.gradientTextViewButton.setOnClickListener(this);
+        mainBinding.paintActivity.setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mainBinding.gradientTextViewText.setVisibility(View.VISIBLE);
                 new Handler().postDelayed(() -> mainBinding.gradientTextViewText.setVisibility(View.GONE),10000);
 
+
+                break;
+
+            case R.id.paint_activity:
+
+                intent = new Intent(this, PaintActivity.class);
+                startActivity(intent);
 
                 break;
 
