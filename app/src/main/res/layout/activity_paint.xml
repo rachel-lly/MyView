@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,16 +8,8 @@
     android:orientation="vertical"
     tools:context=".PaintActivity.PaintActivity">
 
-    <com.example.myview.PaintActivity.DrawCanvas
-        android:id="@+id/canvas"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="horizontal"
-        />
-
-
-
     <LinearLayout
+        android:id="@+id/paint_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -107,7 +98,13 @@
 
     </LinearLayout>
 
+    <com.example.myview.PaintActivity.DrawCanvas
+        android:id="@+id/canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_above="@+id/paint_layout"
+        />
 
 
-
-</LinearLayout>
+</RelativeLayout>
