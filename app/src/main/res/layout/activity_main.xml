@@ -8,6 +8,16 @@
     android:background="#FFFFFF"
     android:layout_centerInParent="true">
 
+    <com.example.myview.GradientTextView.GradientTextView
+        android:id="@+id/gradientTextView_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="shining_star"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,20 +26,30 @@
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
     >
-    <Button
-        android:id="@+id/bottomdrag_layout_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="BottomDragLayout"
-        android:textAllCaps="false"
-        />
-    <Button
-        android:id="@+id/loadingView_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Loading_View"
-        android:textAllCaps="false"
-        />
+        <Button
+            android:id="@+id/bottomdrag_layout_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="BottomDragLayout"
+            android:textAllCaps="false"
+            />
+        <Button
+            android:id="@+id/loadingView_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Loading_View"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/gradientTextView_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="GradientTextView"
+            android:textAllCaps="false"
+            />
+
+
 
     </LinearLayout>
 

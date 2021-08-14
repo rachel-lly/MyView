@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setClick() {
         mainBinding.bottomdragLayoutButton.setOnClickListener(this);
         mainBinding.loadingViewButton.setOnClickListener(this);
+        mainBinding.gradientTextViewButton.setOnClickListener(this);
     }
 
     @Override
@@ -49,14 +50,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 loadingView = new LoadingView(this,R.style.CustomDialog);
                 loadingView.show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadingView.dismiss();
-                    }
-                },10000);
+                new Handler().postDelayed(() -> loadingView.dismiss(),10000);
 
                 break;
+
+            case R.id.gradientTextView_button:
+
+                mainBinding.gradientTextViewText.setVisibility(View.VISIBLE);
+                new Handler().postDelayed(() -> mainBinding.gradientTextViewText.setVisibility(View.GONE),10000);
+
+
+                break;
+
         }
     }
 }
