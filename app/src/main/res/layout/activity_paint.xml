@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PaintActivity.PaintActivity">
+    tools:context=".paintactivity.PaintActivity">
 
     <LinearLayout
         android:id="@+id/paint_layout"
@@ -98,7 +98,7 @@
 
     </LinearLayout>
 
-    <com.example.myview.PaintActivity.DrawCanvas
+    <com.example.myview.paintactivity.DrawCanvas
         android:id="@+id/canvas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

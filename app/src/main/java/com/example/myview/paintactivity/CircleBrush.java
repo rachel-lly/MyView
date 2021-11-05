@@ -1,16 +1,16 @@
-package com.example.myview.PaintActivity;
+package com.example.myview.paintactivity;
 
 import android.graphics.Path;
 
-class NormalBrush implements IBrush{
+class CircleBrush implements IBrush{
     @Override
     public void down(Path path, float x, float y) {
-        path.moveTo(x,y);
+
     }
 
     @Override
     public void move(Path path, float x, float y) {
-        path.lineTo(x,y);
+        path.addCircle(x,y,10,Path.Direction.CW);
     }
 
     @Override

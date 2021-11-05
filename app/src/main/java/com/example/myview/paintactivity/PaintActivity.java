@@ -1,4 +1,4 @@
-package com.example.myview.PaintActivity;
+package com.example.myview.paintactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.example.myview.R;
 import com.example.myview.databinding.ActivityPaintBinding;
 
 public class PaintActivity extends AppCompatActivity {

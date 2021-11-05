@@ -1,4 +1,4 @@
-package com.example.myview.PaintActivity;
+package com.example.myview.paintactivity;
 
 import android.graphics.Canvas;
 

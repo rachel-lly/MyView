@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BottomDragLayout.BottomDragActivity">
+    tools:context=".bottomdraglayout.BottomDragActivity">
 
 
-    <com.example.myview.BottomDragLayout.BottomDragLayout
+    <com.example.myview.bottomdraglayout.BottomDragLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/bottomdrag_layout"
         android:layout_width="match_parent"
@@ -16,6 +16,6 @@
         app:BottomDrag_ContentView="@layout/content_view"
         app:BottomDrag_BottomView="@layout/bottom_view"
         >
-    </com.example.myview.BottomDragLayout.BottomDragLayout>
+    </com.example.myview.bottomdraglayout.BottomDragLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

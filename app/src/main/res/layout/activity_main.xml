@@ -8,7 +8,7 @@
     android:background="#FFFFFF"
     android:layout_centerInParent="true">
 
-    <com.example.myview.GradientTextView.GradientTextView
+    <com.example.myview.gradienttextview.GradientTextView
         android:id="@+id/gradientTextView_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

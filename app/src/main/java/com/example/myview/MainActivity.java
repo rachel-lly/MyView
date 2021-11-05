@@ -13,16 +13,16 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.myview.BottomDragLayout.BottomDragActivity;
-import com.example.myview.LoadingView.LoadingView;
-import com.example.myview.PaintActivity.PaintActivity;
+import com.example.myview.bottomdraglayout.BottomDragActivity;
+import com.example.myview.loadingview.LoadingView;
+import com.example.myview.paintactivity.PaintActivity;
 import com.example.myview.databinding.ActivityMainBinding;
+import com.example.myview.floatwindow.ItemViewTouchListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -67,36 +67,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,0,0, PixelFormat.TRANSPARENT);
 
-        layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         layoutParams.gravity = Gravity.START | Gravity.TOP;
         layoutParams.x = 100;
         layoutParams.y = 100;
-        button.setOnTouchListener(new View.OnTouchListener() {
-            private int initialX;
-            private int initialY;
-            private float initialTouchX;
-            private float initialTouchY;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        initialX = layoutParams.x;
-                        initialY = layoutParams.y;
-                        initialTouchX = event.getRawX();
-                        initialTouchY = event.getRawY();
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        layoutParams.x = initialX + (int) (event.getRawX() - initialTouchX);
-                        layoutParams.y = initialY + (int) (event.getRawY() - initialTouchY);
-                        windowManager.updateViewLayout(button, layoutParams);
-                        return true;
-                }
-                return false;
-            }
-        });
+        button.setOnTouchListener(new ItemViewTouchListener(layoutParams,windowManager,button));
         windowManager.addView(button,layoutParams);
     }
 

@@ -1,4 +1,4 @@
-package com.example.myview.BottomDragLayout;
+package com.example.myview.bottomdraglayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
